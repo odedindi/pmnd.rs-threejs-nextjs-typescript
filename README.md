@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Three.js Example
 
-## Getting Started
+This Next.js project showcasing THREE.js integration draws inspiration from an existing example found at [this codesandbox](https://codesandbox.io/p/sandbox/cards-with-border-radius-9s2wd9?file=%2Fsrc%2Findex.js%3A10%2C1-10%2C65).
+While the core concept remains, I've adapted the original JavaScript code into TypeScript and refactored it to enhance modularity through code splitting. By leveraging the flexibility of TypeScript and Next.js, the project provides a structured and efficient approach to incorporating THREE.js functionalities within a Next.js application.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Demonstrates the integration of Three.js for 3D graphics.
+- Implements code splitting for better performance.
+- Extends geometry and material to create custom 3D elements.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can view a live demo of this project [here](https://example.com).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Dependencies
 
-## Learn More
+This project relies on the following dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+- next (v14)
+- @react-three/drei
+- @react-three/fiber
+- three
+- typescript
+- tailwind
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
-## Deploy on Vercel
+- Fork this repository.
+- Create a new branch for your feature or bug fix.
+- Make your changes and commit them with descriptive messages.
+- Push your changes to your fork.
+- Submit a pull request to this repository.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the [License: CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
