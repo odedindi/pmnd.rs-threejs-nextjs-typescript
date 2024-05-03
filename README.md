@@ -5,9 +5,8 @@ While the core concept remains, I've adapted the original JavaScript code into T
 
 ## Features
 
-- Demonstrates the integration of Three.js for 3D graphics.
-- Implements code splitting for better performance.
-- Extends geometry and material to create custom 3D elements.
+- Demonstrates the integration of Three.js in a Next.js app router application.
+- Extends geometry and material to create custom THREE elements with typescript support.
 
 ## Demo
 
