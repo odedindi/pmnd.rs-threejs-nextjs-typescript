@@ -11,7 +11,7 @@ While the core concept remains, I've adapted the original JavaScript code into T
 
 ## Demo
 
-You can view a live demo of this project [here](https://example.com).
+You can view a live demo of this project [here](https://pmnd-rs-threejs-nextjs-typescript.vercel.app/).
 
 ## Dependencies
 
