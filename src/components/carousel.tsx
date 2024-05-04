@@ -7,15 +7,11 @@ import { easing } from 'maath'
 import Card from './card'
 
 interface CarouselProps extends Omit<GroupProps, 'children'> {
-	radius?: number
-	cardsCount?: number
+	radius: number
+	images: { src: string }[]
 }
 
-const Carousel: FC<CarouselProps> = ({
-	radius = 1.4,
-	cardsCount = 8,
-	...props
-}) => {
+const Carousel: FC<CarouselProps> = ({ radius, images, ...props }) => {
 	const ref = useRef<THREE.Group<THREE.Object3DEventMap>>(null)
 	const scroll = useScroll()
 	useFrame((state, delta) => {
@@ -30,12 +26,13 @@ const Carousel: FC<CarouselProps> = ({
 		) // Move camera
 		state.camera.lookAt(0, 0, 0) // Look at center
 	})
+	const cardsCount = images.length
 	return (
 		<group ref={ref} {...props}>
-			{Array.from({ length: cardsCount }, (_, i) => (
+			{images.map((image, i) => (
 				<Card
 					key={i}
-					url={`/img${Math.floor(i % 10) + 1}_.jpg`}
+					url={image.src}
 					position={[
 						Math.sin((i / cardsCount) * Math.PI * 2) * radius,
 						0,

@@ -7,16 +7,31 @@ import Banner from '@/components/banner'
 import Carousel from '@/components/carousel'
 import { Logo } from '@pmndrs/branding'
 
+const carouselImages: { src: string }[] = Array.from(
+	{ length: 10 },
+	(_, i) => ({
+		src: `/assets/img${Math.floor(i % 10) + 1}_.jpg`,
+	}),
+)
+
+const radius = 2
+
 const Page: NextPage = () => (
-	<main className='h-screen'>
-		<Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
-			<fog attach='fog' args={['#a79', 8.5, 12]} />
-			<ScrollControls style={{ scrollbarWidth: 'none' }} pages={4} infinite>
-				<Carousel rotation={[0, 0, 0.15]} />
-				<Banner position={[0, -0.15, 0]} />
-			</ScrollControls>
-			<Environment preset='dawn' background blur={0.5} />
-		</Canvas>
+	<main className='h-screen pt-20'>
+		<div className='h-96'>
+			<Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
+				<fog attach='fog' args={['#a79', 8.5, 12]} />
+				<ScrollControls style={{ scrollbarWidth: 'none' }} pages={4} infinite>
+					<Carousel
+						rotation={[0, 0, 0.15]}
+						images={carouselImages}
+						radius={radius}
+					/>
+					<Banner position={[0, -0.15, 0]} radius={radius} />
+				</ScrollControls>
+				<Environment preset='dawn' background blur={0.5} />
+			</Canvas>
+		</div>
 		<div>
 			<a
 				href='https://pmnd.rs/'

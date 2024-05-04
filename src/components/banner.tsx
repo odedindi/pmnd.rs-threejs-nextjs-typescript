@@ -4,7 +4,11 @@ import { MeshProps, useFrame } from '@react-three/fiber'
 import { useScroll, useTexture } from '@react-three/drei'
 import '@/extendedElements/meshSineMaterial'
 
-const Banner: FC<MeshProps> = (props) => {
+interface BannerProps extends MeshProps {
+	radius: number
+}
+
+const Banner: FC<BannerProps> = ({ radius, ...props }) => {
 	const ref =
 		useRef<
 			THREE.Mesh<
@@ -13,7 +17,7 @@ const Banner: FC<MeshProps> = (props) => {
 				THREE.Object3DEventMap
 			>
 		>(null)
-	const texture = useTexture('/work_.png')
+	const texture = useTexture('/assets/work_.png')
 	texture.wrapS = texture.wrapT = THREE.RepeatWrapping
 	const scroll = useScroll()
 	useFrame((_state, delta) => {
@@ -21,9 +25,15 @@ const Banner: FC<MeshProps> = (props) => {
 		ref.current.material.time.value += Math.abs(scroll.delta) * 4
 		ref.current.material.map.offset.x += delta / 2
 	})
+
+	const radialSymmetry = Math.min(2.6, radius * 1.15)
+	const height = Math.min(0.2, radius * 0.1)
+
 	return (
 		<mesh ref={ref} {...props}>
-			<cylinderGeometry args={[1.6, 1.6, 0.14, 128, 16, true]} />
+			<cylinderGeometry
+				args={[radialSymmetry, radialSymmetry, height, 128, 16, true]}
+			/>
 			<meshSineMaterial
 				map={texture}
 				map-anisotropy={16}
